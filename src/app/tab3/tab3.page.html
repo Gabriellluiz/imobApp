@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar color="vermelho">
+    <ion-title>
+      Cadastro de imovel
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label class="fonte-input" position="stacked">Descrição</ion-label>
+      <ion-input [(ngModel)]="imovel.desc"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="fonte-input" position="stacked">Endereço</ion-label>
+      <ion-input [(ngModel)]="imovel.ender"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="fonte-input" position="stacked">Latitude</ion-label>
+      <ion-input [(ngModel)]="imovel.lat"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="fonte-input" position="stacked">Longitude</ion-label>
+      <ion-input [(ngModel)]="imovel.long"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="fonte-input" position="stacked">Valor</ion-label>
+      <ion-input [(ngModel)]="imovel.valor"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Foto 1</ion-label>
+      <ion-icon name="images" slot="end"></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Foto 2</ion-label>
+      <ion-icon name="images" slot="end"></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Foto 3</ion-label>
+      <ion-icon name="images" slot="end"></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Status</ion-label>
+      <ion-select [(ngModel)]="imovel.status" placeholder="Selecione">
+        <ion-select-option value="Disponível">Disponível</ion-select-option>
+        <ion-select-option value="Indisponível">Indisponível</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item *ngIf="imovel.status == 'Indisponível'">
+      <ion-label class="fonte-input" position="stacked">Funcionario</ion-label>
+      <ion-input [(ngModel)]="imovel.funcionario"></ion-input>
+    </ion-item>
+
+    <ion-button color="vermelho" expand="block" fill="outline" (click)="salvarImovel()">Salvar</ion-button>
+  </ion-list>
+</ion-content>

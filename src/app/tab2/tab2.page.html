@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar color="vermelho">
+    <ion-title>
+      Nome da Imobiliaria
+    </ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar color="vermelho">
+    <ion-searchbar color="vermelho" (ionInput)="buscaImov($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let imovel of imoveis">
+    <ion-card [routerLink]="['/tabs/tab3', imovel.id]" style="height: auto;">
+      <div>
+        <ion-slides pager="true" [options]="slideOpts">
+          <ion-slide>
+            <ion-img src="https://img.olhardigital.com.br/uploads/acervo_imagens/2019/08/r16x9/20190819040121_1200_675_-_inteligencia_artificial.jpg"></ion-img>
+          </ion-slide>
+          <ion-slide>
+            <ion-img src="https://blog.vectracs.com.br/wp-content/uploads/2018/08/218337-o-que-e-inteligencia-artificial-e-qual-seu-impacto-nos-negocios-1280x640.jpg"></ion-img>
+          </ion-slide>
+          <ion-slide>
+            <ion-img src="http://auditeste.com.br/wp-content/uploads/2019/04/destaq.jpg"></ion-img>
+          </ion-slide>
+        </ion-slides>
+      </div>
+
+      <ion-list>
+        <ion-item lines="none">
+          <ion-label style="text-align: center;">Descrição</ion-label>
+          <p>{{imovel.desc}}</p>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label style="text-align: center;">Endereço</ion-label>
+          <p>{{imovel.ender}}</p>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label style="text-align: center;">Valor</ion-label>
+          <p>{{imovel.valor}}</p>
+        </ion-item>
+        <div *ngIf="imovel.status == 'Disponível'">
+          <ion-item lines="none">
+            <ion-label style="text-align: center; color: #09ff00">{{imovel.status}}</ion-label>
+          </ion-item>
+        </div>
+
+        <div *ngIf="imovel.status == 'Indisponível'">
+          <ion-item lines="none">
+            <ion-label style="text-align: center; color:rgb(253, 2, 2)">{{imovel.status}}</ion-label>
+          </ion-item>
+
+          <ion-item lines="none">
+              <ion-label style="text-align: center;">Funcionario</ion-label>
+              <p>{{imovel.funcionario}}</p>
+            </ion-item>
+        </div>
+        
+          
+        
+      </ion-list>
+
+    </ion-card>
+
+    <div class="espaco-acima"></div>
+
+  </div>
+
+
+
+</ion-content>
