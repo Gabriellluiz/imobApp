@@ -1,0 +1,7 @@
+{
+  "name": "imobApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
